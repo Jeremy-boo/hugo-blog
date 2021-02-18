@@ -1,0 +1,154 @@
+baseURL = "https://jeremy-boo.github.io/" # <head> 里面的 baseurl 信息，填你的博客地址
+languageCode = "zh-CN" # 语言
+defaultContentLanguage = "zh-cn"  # en / zh-cn / ... (This field determines which i18n file to use)
+
+title = "二师兄。Jeremy-boo’s personal blog" #标题
+preserveTaxonomyNames = true
+enableRobotsTXT = true # 支持robot txt
+enableEmoji = true #支持表情
+theme = "even" # 主题
+
+enableGitInfo = false # use git commit log to generate lastmod record # 可根据 Git 中的提交生成最近更新记录。
+disablePathToLower = true # 禁止将路径全部改为小写
+
+# Syntax highlighting by Chroma. NOTE: Don't enable `highlightInClient` and `chroma` at the same time!
+pygmentsOptions = "linenos=table"
+pygmentsCodefences = true
+pygmentsUseClasses = true
+pygmentsCodefencesGuessSyntax = true
+
+markup = "markdown" # 格式化 markdown
+hasCJKLanguage = true     # has chinese/japanese/korean ? # 自动检测是否包含 中文\日文\韩文
+paginate = 10                                              # 首页每页显示的文章数
+disqusShortname = ""      # disqus_shortname
+googleAnalytics = ""      # google 统计ID，原有UA-138883536-1
+copyright = "Jeremy-boo"            # default: author.name ↓        # 默认为下面配置的author.name ↓
+
+[blackfriday]
+  smartypants = false
+
+[author]                  # essential                     # 必需
+  name = "Jeremy-boo"
+
+[sitemap]                 # essential                     # 必需
+  changefreq = "weekly"
+  priority = 0.5
+  filename = "sitemap.xml"
+[menu]
+    [[menu.main]]
+      name = "首页"
+      weight = 10
+      identifier = "home"
+      url = "/"
+    [[menu.main]]
+      name = "归档"
+      weight = 20
+      identifier = "archives"
+      url = "/post/"
+    [[menu.main]]
+      name = "分类"
+      weight = 30
+      identifier = "categories"
+      url = "/categories/"
+    [[menu.main]]
+      name = "标签"
+      weight = 40
+      identifier = "tags"
+      url = "/tags/"
+    [[menu.main]]
+      name = "关于我"
+      weight = 50
+      identifier = "about"
+      url = "/about/"
+
+[params]
+  version = "4.x"           # Used to give a friendly message when you have an incompatible update
+  debug = false             # If true, load `eruda.min.js`. See https://github.com/liriliri/eruda
+
+  since = "2020"            # Site creation time          # 站点建立时间
+  # use public git repo url to link lastmod git commit, enableGitInfo should be true.
+  # 指定 git 仓库地址，可以生成指向最近更新的 git commit 的链接，需要将 enableGitInfo 设置成 true.
+  gitRepo = "https://github.com/Jeremy-boo/Jeremy-boo.github.io"
+
+  # site info (optional)                                  # 站点信息（可选，不需要的可以直接注释掉）
+  logoTitle = ""        # default: the title value        # 默认值: 上面设置的title值
+  keywords = ["Go", "Github" ,"Kubernetes", "Docker","Back End"]
+  description = "Jeremy-boo’s Blog"
+
+  # paginate of archives, tags and categories             # 归档、标签、分类每页显示的文章数目，建议修改为一个较大的值
+  archivePaginate = 50
+
+  # show 'xx Posts In Total' in archive page ?            # 是否在归档页显示文章的总数
+  showArchiveCount = true
+
+  # The date format to use; for a list of valid formats, see https://gohugo.io/functions/format/
+  dateFormatToUse = "2006-01-02 15:04"
+
+  # show word count and read time ?                       # 是否显示字数统计与阅读时间
+  moreMeta = true
+
+  # Syntax highlighting by highlight.js
+  highlightInClient = true
+
+  # 一些全局开关，你也可以在每一篇内容的 front matter 中针对单篇内容关闭或开启某些功能，在 archetypes/default.md 查看更多信息。
+  toc = true                                              # 是否开启目录
+  autoCollapseToc = true                                  # 目录自动展开/折叠
+  fancybox = true                                         # 是否启用fancybox（图片可点击）
+
+  # mathjax
+  mathjax = false                                       # 是否使用mathjax（数学公式）
+  mathjaxEnableSingleDollar = false                     # 是否使用 $...$ 即可進行inline latex渲染
+  mathjaxEnableAutoNumber = false                       # 是否使用公式自动编号
+  mathjaxUseLocalFiles = false
+
+  postMetaInFooter = true              # 包含作者，上次修改时间，markdown链接，许可信息
+  linkToMarkDown = true                # 链接到markdown原始文件（仅当允许hugo生成markdown文件时有效）
+  contentCopyright = '<a target="_blank" rel="license noopener" href="https://github.com/nusr/blog/blob/master/LICENSE">MIT</a>'     # e.g. '<a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a>'
+
+  # Link custom CSS and JS assets
+  #   (relative to /static/css and /static/js respectively)
+  customCSS = []
+  customJS = []
+
+  uglyURLs = false
+
+  [params.publicCDN]          # 启用公共CDN，需自行定义
+
+  # 在文章开头显示提示信息，提醒读者文章内容可能过时。
+  [params.outdatedInfoWarning]
+    enable = true
+    hint = 365                   # 如果文章最后更新于这天数之前，显示提醒
+    warn = 730                   # 如果文章最后更新于这天数之前，显示警告
+
+  [params.utterances]                # https://github.com/utterance/utterances 评论插件
+    repo = "nusr/blog"               # 安装 https://github.com/apps/utterances,配置选择的 github 仓库，，仓库名字要一致
+
+  [params.flowchartDiagrams]# see https://blog.olowolo.com/example-site/post/js-flowchart-diagrams/
+    enable = false
+    options = ""
+
+  [params.sequenceDiagrams] # see https://blog.olowolo.com/example-site/post/js-sequence-diagrams/
+    enable = false
+    options = ""            # default: "{theme: 'simple'}"
+
+  [params.busuanzi]         # count web traffic by busuanzi                             # 是否使用不蒜子统计站点访问量
+    enable = true
+    siteUV = true
+    sitePV = true
+    pagePV = true
+
+  [params.reward]                             # 文章打赏
+    enable = true
+    wechat = "/images/wechat.JPG"           # 微信二维码
+
+  [params.social]                                         # 社交链接
+    a-email = "mailto:boo-jeremy@outlook.com"
+    g-github = "https://github.com/Jeremy-boo"
+    o-bilibili = "https://space.bilibili.com/511974364"
+
+# See https://gohugo.io/about/hugo-and-gdpr/
+[privacy]
+  [privacy.googleAnalytics]
+    anonymizeIP = true      # 12.214.31.144 -> 12.214.31.0
+  [privacy.youtube]
+    privacyEnhanced = true
